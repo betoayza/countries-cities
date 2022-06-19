@@ -1,13 +1,12 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import React from 'react'
 import './App.css'
+import { CountriesStatesCities } from './components/CountriesStatesCities'
 
-function App() {
-  const [count, setCount] = useState(0)
+function App() {  
 
   return (
     <div className="App">
-      
+      <CountriesStatesCities />
     </div>
   )
 }
