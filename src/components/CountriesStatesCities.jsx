@@ -1,17 +1,19 @@
 import React, {useState } from "react";
-import SelectTemplate from "./SelectTemplate";
+import {CountriesSelect} from './CountriesSelect';
+import {CitiesSelect} from './CitiesSelect';
 
 export const CountriesStatesCities = () => {
-  const [country, setCountry] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
+  const [country, setCountry] = useState(null);
+  const [state, setState] = useState(null);
+  const [city, setCity] = useState(null);
   
   return (
     <div>
       <h1>Countries States Cities</h1>
-      <SelectTemplate title={"country"} handleChange={(e)=>setCountry(e.target.value)}/>
-      {country && <SelectTemplate title={"state"} handleChange={(e)=>setState(e.target.value)}/>}
-      {state && <SelectTemplate title={"city"} handleChange={(e)=>setCity(e.target.value)}/>}
+      <CountriesSelect title={"country"} handleChange={(e)=>setCountry(e.target.value)}/>
+      {country && <CitiesSelect title={"cities"} country={country} handleChange={(e)=>setCity(e.target.value)}/>}
+      {/* {state && <SelectTemplate title={"cities"} levelUpSelected={} handleChange={(e)=>setCity(e.target.value)}/>} */}
+      {city && `${country}-${city}`}
     </div>
   );
 };

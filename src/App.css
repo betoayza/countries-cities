@@ -1,1 +1,12 @@
-
+div {
+    display: grid;
+    place-items: center;
+    border: solid 1px;
+    border-color: coral;
+    color: brown;
+  }
+  
+  .App {
+    height: 690px;
+    width: auto;
+  }
