@@ -1,13 +1,54 @@
-div {
+  div {
     display: grid;
-    place-items: center;
-    border: solid 1px;
-    border-color: coral;
-    color: brown;
+    place-items: center;       
+  }
+
+  select {
+    color: black;
+    font-style: italic;
+  }
+
+  label {
+    color:  darkgreen;
+    font-weight: bold;
   }
   
-  .App {
-    height: 690px;
-    width: auto;
+  h1 {
+    color: gold;
+    -webkit-text-stroke: 1px black;
   }
+
+  option {
+    background-color: darkseagreen;
+  }
+  
+  #result-label {
+    color: chartreuse;
+    background-color: black;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem;
+  } 
+  
+  #app-div {
+    height: 300px;
+    width: 450px;
+    border-radius: 1rem;
+    background-color: blueviolet;
+    border: solid 3px;
+  }
+
+  #main-div {
+    background-color: sienna;
+    border-radius: 1rem;    
+    padding: 1rem;
+    border: 3px solid;
+    border-color: black;
+  }
+
+  #cities-label {
+    margin-top: 1rem;
+  }
+  
   

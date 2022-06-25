@@ -1,23 +1,16 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
 
-
-// import { useFetch } from "../hooks/useFetch";
 // import Loader from "./Loader";
 // import Message from "./Message";
 
-export const CountriesSelect = ({ title, handleChange }) => {
+export const CountriesSelect = ({ title, handleChange, setCity }) => {
   
-  const [data, setData] = useState(null);
-
-  //if (!data) return null; //avoid innecesary renders
-  // if(error){
-  //   return <Message mgs={`Error ${error.status}: ${error.statusText}`} />
-  // }
-
-  let id = Date.now();
+  const [data, setData] = useState(null); 
+  
+  let id = `select-${title}`;
   let label = title.charAt(0).toUpperCase() + title.slice(1); 
-
+  
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -26,14 +19,13 @@ export const CountriesSelect = ({ title, handleChange }) => {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*',
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Content-Type': 'application/json'
       },
     };
-     
+    
     const connect = async (options)=>{
       await axios.request(options)      
-        .then(function (response) {         
+      .then(function (response) {         
         console.log(response.data);
         setData(response.data);
         console.log(data);
@@ -42,15 +34,16 @@ export const CountriesSelect = ({ title, handleChange }) => {
       });
     }
     connect(options);
-            
-    }, []);  
+    
+  }, []);  
   
-
+  if (!data) return null; //avoid innecesary renders
+  
   return (
-    <div>
-      <label htmlFor={id}>{label}</label>
+    <div id="countries-div">
+      <label>{label}</label>
       {/* {loading && <Loader />} */}
-      <select name={id} id={id} onChange={handleChange}>
+      <select name={id} id={id} onClick={()=>setCity(null)} onChange={handleChange}>
         <option value="">Choice {title}</option>
         {data && data.data.map((el, index)=> <option key={index}>{el[title]}</option>)}
       </select>

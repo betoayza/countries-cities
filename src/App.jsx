@@ -5,7 +5,7 @@ import { CountriesStatesCities } from './components/CountriesStatesCities'
 function App() {  
 
   return (
-    <div className="App">
+    <div id="app-div">
       <CountriesStatesCities />
     </div>
   )
